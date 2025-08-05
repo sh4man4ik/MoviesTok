@@ -52,12 +52,6 @@ function Movie() {
 				</span>
 				<p className="movie-description">{movieDescription}</p>
 			</div>
-
-			<div className="buttons-container">
-				<p className="button-next-movie" onClick={getRandomMovie}>
-					➡️
-				</p>
-			</div>
 		</>
 	);
 }
