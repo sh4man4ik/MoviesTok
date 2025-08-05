@@ -32,9 +32,9 @@ function Movie() {
 	}
 
 	useEffect(() => {
-		return () => {
-			getRandomMovie();
-		};
+		getRandomMovie();
+
+		return () => {};
 	}, []);
 
 	return (
