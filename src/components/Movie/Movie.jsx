@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import './movie.css';
 
 function Movie() {
@@ -37,9 +38,14 @@ function Movie() {
 		return () => {};
 	}, []);
 
+	const handlers = useSwipeable({
+		onSwipedUp: () => getRandomMovie(),
+		trackMouse: true
+	});
+
 	return (
 		<>
-			<div className="movie-container">
+			<div className="movie-container" {...handlers}>
 				<img src={poster} alt="poster" className="movie-poster" />
 				<h1 className="movie-title display-6">{movieTitle}</h1>
 				<span className="movie-data">
