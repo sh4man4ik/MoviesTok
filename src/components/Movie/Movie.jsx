@@ -16,9 +16,11 @@ function Movie() {
 	let movieContainer = useRef();
 
 	async function getRandomMovie() {
-		movieContainer.current.classList.remove('animate__animated', 'animate__pulse');
-		void movieContainer.current.offsetWidth;
-		movieContainer.current.classList.add('animate__animated', 'animate__pulse');
+		if (movieContainer.current) {
+			movieContainer.current.classList.remove('animate__animated', 'animate__pulse');
+			void movieContainer.current.offsetWidth;
+			movieContainer.current.classList.add('animate__animated', 'animate__pulse');
+		}
 
 		let randomPage = Math.floor(Math.random() * 500 + 1);
 
@@ -54,18 +56,20 @@ function Movie() {
 
 	return (
 		<>
-			<div className="movie-container" {...handlers} ref={movieContainer}>
-				<img src={poster} alt="poster" className="movie-poster" />
-				<h1 className="movie-title display-6">{movieTitle}</h1>
-				<span className="movie-data">
-					<i className="bi bi-star-fill"></i>
-					<p className="movie-rating">{movieRating}</p>
-					<p>•</p>
-					<p className="movie-year">{movieYear}</p>
-					<p>•</p>
-					<p className="movie-length">{movieLength}</p>
-				</span>
-				<p className="movie-description">{movieDescription}</p>
+			<div className="movie-container" ref={movieContainer}>
+				<div className="movie-container-2" ref={movieContainer} {...handlers}>
+					<img src={poster} alt="poster" className="movie-poster" />
+					<h1 className="movie-title display-6">{movieTitle}</h1>
+					<span className="movie-data">
+						<i className="bi bi-star-fill"></i>
+						<p className="movie-rating">{movieRating}</p>
+						<p>•</p>
+						<p className="movie-year">{movieYear}</p>
+						<p>•</p>
+						<p className="movie-length">{movieLength}</p>
+					</span>
+					<p className="movie-description">{movieDescription}</p>
+				</div>
 			</div>
 		</>
 	);
