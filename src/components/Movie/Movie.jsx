@@ -39,7 +39,9 @@ function Movie() {
 	}, []);
 
 	const handlers = useSwipeable({
-		onSwipedUp: () => getRandomMovie(),
+		onSwipedUp: () => {
+			getRandomMovie();
+		},
 		trackMouse: true
 	});
 

@@ -1,5 +1,4 @@
 .movie-container {
-	min-width: 231px;
 	width: min-content;
 	height: fit-content;
 	padding: 18px;
@@ -11,7 +10,6 @@
 }
 
 .movie-poster {
-	width: 195px;
 	border-radius: 10px;
 	justify-self: center;
 }
@@ -56,6 +54,10 @@
 @media (max-width: 1023px) {
 	.movie-container {
 		margin-top: 35px;
+		min-width: 231px;
+	}
+	.movie-poster {
+		width: 195px;
 	}
 }
 
@@ -63,5 +65,9 @@
 @media (min-width: 1024px) {
 	.movie-container {
 		margin-top: 55px;
+		min-width: 300px;
+	}
+	.movie-poster {
+		width: 264px;
 	}
 }
