@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import './movie.css';
+import 'animate.css';
 
 function Movie() {
 	const apiKey = '0e533002c00fffd5fb499b51003a16c0';
@@ -12,7 +13,13 @@ function Movie() {
 	let [movieLength, setMovieLength] = useState();
 	let [movieDescription, setMovieDescription] = useState();
 
+	let movieContainer = useRef();
+
 	async function getRandomMovie() {
+		movieContainer.current.classList.remove('animate__animated', 'animate__pulse');
+		void movieContainer.current.offsetWidth;
+		movieContainer.current.classList.add('animate__animated', 'animate__pulse');
+
 		let randomPage = Math.floor(Math.random() * 500 + 1);
 
 		let result = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${randomPage}`);
@@ -47,7 +54,7 @@ function Movie() {
 
 	return (
 		<>
-			<div className="movie-container" {...handlers}>
+			<div className="movie-container" {...handlers} ref={movieContainer}>
 				<img src={poster} alt="poster" className="movie-poster" />
 				<h1 className="movie-title display-6">{movieTitle}</h1>
 				<span className="movie-data">
