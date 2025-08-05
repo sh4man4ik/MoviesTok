@@ -1,0 +1,66 @@
+.film-container {
+	width: 231px;
+	height: fit-content;
+	padding: 18px;
+	background-color: rgba(255, 255, 255, 0.03);
+	display: grid;
+	text-align: left;
+	border-radius: 28px;
+	justify-self: center;
+}
+
+.film-poster {
+	width: 195px;
+	border-radius: 10px;
+	justify-self: center;
+}
+
+.film-title {
+	font-weight: bold;
+	margin-top: 12px;
+	margin-bottom: 3px;
+	background-color: transparent;
+}
+
+.film-data {
+	display: flex;
+	background-color: transparent;
+	align-items: center;
+	font-size: clamp(12px, 2vw, 16px);
+}
+
+.film-data p {
+	display: flex;
+	background-color: transparent;
+	color: #969696;
+	padding-left: 3px;
+	margin: 0;
+}
+
+.bi-star-fill {
+	background-color: transparent;
+	color: #fbff00;
+	margin-right: 3px;
+}
+
+.film-description {
+	background-color: transparent;
+	text-align: justify;
+	font-size: clamp(12px, 2vw, 16px);
+	margin-top: 12px;
+	margin-bottom: -5px;
+}
+
+/*Mobile*/
+@media (max-width: 1023px) {
+	.film-container {
+		margin-top: 35px;
+	}
+}
+
+/*PC*/
+@media (min-width: 1024px) {
+	.film-container {
+		margin-top: 55px;
+	}
+}
