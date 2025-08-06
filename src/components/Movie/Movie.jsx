@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import './movie.css';
-import 'animate.css';
 
 function Movie() {
 	const apiKey = '0e533002c00fffd5fb499b51003a16c0';
@@ -17,9 +16,9 @@ function Movie() {
 
 	async function getRandomMovie() {
 		if (movieContainer.current) {
-			movieContainer.current.classList.remove('animate__animated', 'animate__pulse');
+			movieContainer.current.classList.remove('bounceAnimation');
 			void movieContainer.current.offsetWidth;
-			movieContainer.current.classList.add('animate__animated', 'animate__pulse');
+			movieContainer.current.classList.add('bounceAnimation');
 		}
 
 		let randomPage = Math.floor(Math.random() * 500 + 1);

@@ -37,5 +37,4 @@ npm run dev
 
 # Technology
 
-I used the following technologies to create the website: _React_, _Vite_, _Node.js_, _Bootstrap_, _Google Fonts_,
-_Animate.css_.
+I used the following technologies to create the website: _React_, _Vite_, _Node.js_, _Bootstrap_, _Google Fonts_.
