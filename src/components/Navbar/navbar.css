@@ -9,18 +9,21 @@
 	font-weight: bold;
 	cursor: default;
 	margin-right: auto;
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .github-link-text {
 	font-weight: bold;
 	cursor: pointer;
 	margin-left: auto;
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .github-link-logo {
 	cursor: pointer;
 	margin-left: auto;
 	font-size: clamp(24px, 5vw, 36px);
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .bi-github {

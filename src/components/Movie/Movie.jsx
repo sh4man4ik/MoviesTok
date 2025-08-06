@@ -17,9 +17,10 @@ function Movie() {
 
 	async function getRandomMovie() {
 		if (movieContainer.current) {
-			movieContainer.current.classList.remove('animate__animated', 'animate__pulse');
+			//animate__pulse || animate__rubberBand
+			movieContainer.current.classList.remove('animate__animated', 'animate__rubberBand');
 			void movieContainer.current.offsetWidth;
-			movieContainer.current.classList.add('animate__animated', 'animate__pulse');
+			movieContainer.current.classList.add('animate__animated', 'animate__rubberBand');
 		}
 
 		let randomPage = Math.floor(Math.random() * 500 + 1);
