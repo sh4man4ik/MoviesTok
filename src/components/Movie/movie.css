@@ -66,34 +66,6 @@
 	margin-bottom: -5px;
 }
 
-/*Mobile*/
-@media (max-width: 1023px) {
-	.movie-container {
-		margin-top: 35px;
-		min-width: 231px;
-	}
-	.movie-poster {
-		width: 195px;
-	}
-	.movie-description {
-		margin-top: 15px;
-	}
-}
-
-/*PC*/
-@media (min-width: 1024px) {
-	.movie-container {
-		margin-top: 55px;
-		min-width: 300px;
-	}
-	.movie-poster {
-		width: 264px;
-	}
-	.movie-description {
-		margin-top: 20px;
-	}
-}
-
 .bounceAnimation {
 	animation: bounce 1.3s ease;
 }
@@ -137,5 +109,33 @@
 	}
 	to {
 		opacity: 0.5;
+	}
+}
+
+/*Mobile*/
+@media (max-width: 1023px) {
+	.movie-container {
+		margin-top: 35px;
+		min-width: 231px;
+	}
+	.movie-poster {
+		width: 195px;
+	}
+	.movie-description {
+		margin-top: 15px;
+	}
+}
+
+/*PC*/
+@media (min-width: 1024px) {
+	.movie-container {
+		margin-top: 55px;
+		min-width: 300px;
+	}
+	.movie-poster {
+		width: 264px;
+	}
+	.movie-description {
+		margin-top: 20px;
 	}
 }

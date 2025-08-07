@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import swipeImg from '../../assets/swipe.png';
+import notFoundImg from '../../assets/not_found.jpg';
 import './movie.css';
 
 function Movie() {
@@ -17,6 +18,36 @@ function Movie() {
 	let movieContainer = useRef();
 	let swipeImgRef = useRef();
 
+	function setUrl() {
+		let yearNow = new Date();
+		let fullYearNow = yearNow.getFullYear() + 1;
+		let minMovieYear = 2026; //1874
+		let maxMovieYear = fullYearNow;
+
+		let minMovieRating = 6.5; //0.0
+		let maxMovieRating = 8.5; // 10.0
+
+		let minMoviDuration = 80; //30
+		let maxMoviDuration = 150; //240
+
+		let movieGenre;
+
+		let randomPage = Math.floor(Math.random() * 500 + 1);
+
+		let url =
+			`https://api.themoviedb.org/3/discover/movie?` +
+			`api_key=${apiKey}` +
+			`&page=${randomPage}` +
+			`&primary_release_date.gte=${minMovieYear}-01-01` +
+			`&primary_release_date.lte=${maxMovieYear}-12-31` +
+			`&vote_average.gte=${minMovieRating}` +
+			`&vote_average.lte=${maxMovieRating}` +
+			`&with_runtime.gte=${minMoviDuration}` +
+			`&with_runtime.lte=${maxMoviDuration}`;
+
+		return url;
+	}
+
 	async function getRandomMovie() {
 		if (movieContainer.current) {
 			movieContainer.current.classList.remove('bounceAnimation');
@@ -24,23 +55,32 @@ function Movie() {
 			movieContainer.current.classList.add('bounceAnimation');
 		}
 
-		let randomPage = Math.floor(Math.random() * 500 + 1);
+		let url = setUrl();
 
-		let result = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${randomPage}`);
-		let movies = await result.json();
+		try {
+			let result = await fetch(url);
+			let movies = await result.json();
 
-		let randomIndex = Math.floor(Math.random() * movies.results.length);
-		let randomMovie = movies.results[randomIndex];
+			let randomIndex = Math.floor(Math.random() * movies.results.length);
+			let randomMovie = movies.results[randomIndex];
 
-		let movieDetailsRes = await fetch(`https://api.themoviedb.org/3/movie/${randomMovie.id}?api_key=${apiKey}`);
-		let movieDetails = await movieDetailsRes.json();
+			let movieDetailsRes = await fetch(`https://api.themoviedb.org/3/movie/${randomMovie.id}?api_key=${apiKey}`);
+			let movieDetails = await movieDetailsRes.json();
 
-		setPoster(`https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`);
-		setMovieTitle(randomMovie.title);
-		setMovieRating(randomMovie.vote_average.toFixed(1));
-		setMovieYear(randomMovie.release_date.match(/\d{4}/));
-		setMovieLength(movieDetails.runtime + 'm');
-		setMovieDescription(randomMovie.overview.substring(0, 150) + '...');
+			setPoster(`https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`);
+			setMovieTitle(randomMovie.title);
+			setMovieRating(randomMovie.vote_average.toFixed(1));
+			setMovieYear(randomMovie.release_date.match(/\d{4}/));
+			setMovieLength(movieDetails.runtime + 'm');
+			setMovieDescription(randomMovie.overview.substring(0, 150) + '...');
+		} catch (error) {
+			setPoster(notFoundImg);
+			setMovieTitle('Not found');
+			setMovieRating('—');
+			setMovieYear('—');
+			setMovieLength('—');
+			setMovieDescription('Not found');
+		}
 	}
 
 	useEffect(() => {
