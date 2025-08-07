@@ -19,18 +19,16 @@ function Movie() {
 	let swipeImgRef = useRef();
 
 	function setUrl() {
-		let yearNow = new Date();
-		let fullYearNow = yearNow.getFullYear() + 1;
-		let minMovieYear = 2026; //1874
-		let maxMovieYear = fullYearNow;
+		let minMovieYear = localStorage.getItem('minMovieYear');
+		let maxMovieYear = localStorage.getItem('maxMovieYear');
 
-		let minMovieRating = 6.5; //0.0
-		let maxMovieRating = 8.5; // 10.0
+		let minMovieRating = localStorage.getItem('minMovieRating');
+		let maxMovieRating = localStorage.getItem('maxMovieRating');
 
-		let minMoviDuration = 80; //30
-		let maxMoviDuration = 150; //240
+		let minMoviDuration = localStorage.getItem('minMoviDuration');
+		let maxMoviDuration = localStorage.getItem('maxMoviDuration');
 
-		let movieGenre;
+		let movieGenre = localStorage.getItem('movieGenre');
 
 		let randomPage = Math.floor(Math.random() * 500 + 1);
 
@@ -44,6 +42,11 @@ function Movie() {
 			`&vote_average.lte=${maxMovieRating}` +
 			`&with_runtime.gte=${minMoviDuration}` +
 			`&with_runtime.lte=${maxMoviDuration}`;
+
+		//0 = all genres
+		if (movieGenre != 0) {
+			url += `&with_genres=${movieGenre}`;
+		}
 
 		return url;
 	}
