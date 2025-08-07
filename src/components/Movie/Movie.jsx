@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import swipeImg from '../../assets/swipe.png';
 import './movie.css';
 
 function Movie() {
@@ -11,8 +12,10 @@ function Movie() {
 	let [movieYear, setMovieYear] = useState();
 	let [movieLength, setMovieLength] = useState();
 	let [movieDescription, setMovieDescription] = useState();
+	let [isAnimation, setIsAnimation] = useState(true);
 
 	let movieContainer = useRef();
+	let swipeImgRef = useRef();
 
 	async function getRandomMovie() {
 		if (movieContainer.current) {
@@ -43,12 +46,29 @@ function Movie() {
 	useEffect(() => {
 		getRandomMovie();
 
+		let isAnimationFromStorage = localStorage.getItem('isAnimationFromStorage');
+
+		if (isAnimationFromStorage === null) {
+			swipeImgRef.current.style.display = 'block';
+			setIsAnimation(true);
+		} else {
+			setIsAnimation(false);
+		}
+
 		return () => {};
 	}, []);
+
+	useEffect(() => {
+		if (!isAnimation) {
+			swipeImgRef.current.style.display = 'none';
+			localStorage.setItem('isAnimationFromStorage', 'false');
+		}
+	}, [isAnimation]);
 
 	const handlers = useSwipeable({
 		onSwipedUp: () => {
 			getRandomMovie();
+			setIsAnimation(false);
 		},
 		trackMouse: true
 	});
@@ -70,6 +90,8 @@ function Movie() {
 					<p className="movie-description">{movieDescription}</p>
 				</div>
 			</div>
+
+			<img src={swipeImg} ref={swipeImgRef} alt="swipe" className="swipeImg" />
 		</>
 	);
 }

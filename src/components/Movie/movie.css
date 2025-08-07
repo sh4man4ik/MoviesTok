@@ -26,6 +26,9 @@
 	display: flex;
 	border-radius: 10px;
 	justify-self: center;
+	user-select: none;
+	-webkit-user-drag: none;
+	pointer-events: none;
 }
 
 .movie-title {
@@ -107,5 +110,32 @@
 	}
 	60% {
 		transform: translateY(-15px);
+	}
+}
+
+.swipeImg {
+	display: none;
+	position: absolute;
+	max-width: 200px;
+	width: 30%;
+	min-width: 100px;
+	height: auto;
+	background: transparent;
+	filter: drop-shadow(0 0 10px black);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: flash 1s ease infinite alternate;
+	user-select: none;
+	-webkit-user-drag: none;
+	pointer-events: none;
+}
+@keyframes flash {
+	from {
+		opacity: 0.1;
+	}
+	to {
+		opacity: 0.5;
 	}
 }
