@@ -25,8 +25,8 @@ function Movie() {
 		let minMovieRating = localStorage.getItem('minMovieRating');
 		let maxMovieRating = localStorage.getItem('maxMovieRating');
 
-		let minMoviDuration = localStorage.getItem('minMoviDuration');
-		let maxMoviDuration = localStorage.getItem('maxMoviDuration');
+		let minMovieDuration = localStorage.getItem('minMovieDuration');
+		let maxMovieDuration = localStorage.getItem('maxMovieDuration');
 
 		let movieGenre = localStorage.getItem('movieGenre');
 
@@ -40,8 +40,8 @@ function Movie() {
 			`&primary_release_date.lte=${maxMovieYear}-12-31` +
 			`&vote_average.gte=${minMovieRating}` +
 			`&vote_average.lte=${maxMovieRating}` +
-			`&with_runtime.gte=${minMoviDuration}` +
-			`&with_runtime.lte=${maxMoviDuration}`;
+			`&with_runtime.gte=${minMovieDuration}` +
+			`&with_runtime.lte=${maxMovieDuration}`;
 
 		//0 = all genres
 		if (movieGenre != 0) {

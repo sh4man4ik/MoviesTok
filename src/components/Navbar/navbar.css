@@ -1,11 +1,11 @@
-.navbar {
-	display: flex;
+.navbar-container {
 	width: 100%;
 	height: auto;
 	align-items: center;
 }
 
 .title {
+	margin-left: 5px;
 	font-weight: bold;
 	cursor: default;
 	margin-right: auto;
@@ -27,17 +27,65 @@
 }
 
 .bi-github {
-	color: white;
+	color: #e2e2e2;
+}
+
+.navbar-toggler {
+	border: none;
+}
+.navbar-toggler .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23e2e2e2' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+	border: none !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.p-4 {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	justify-content: center;
+}
+
+.p-4 div {
+	display: grid;
+}
+
+.p-4 input {
+	accent-color: #e2e2e2;
+	border: none !important;
+	width: clamp(80px, 15vw, 150px);
+	margin-bottom: 10px;
+}
+
+.p-4 label {
+	font-size: clamp(12px, 2vw, 16px);
+	width: max-content;
+}
+
+.p-4 select {
+	font-size: clamp(12px, 2vw, 16px);
+}
+
+.select-movie-genre {
+	height: fit-content;
+	width: fit-content;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1.5px solid #e2e2e2;
 }
 
 /*Mobile*/
 @media (max-width: 1023px) {
-	.navbar {
+	.navbar-container {
 		padding: 20px;
 		padding-bottom: 0px;
 	}
 	.title {
-		padding-left: 13px;
 		padding-top: 5px;
 	}
 	.github-link-text {
@@ -47,17 +95,22 @@
 		display: block;
 		padding-right: 7px;
 	}
+	.navbar-toggler {
+		margin-top: -4px;
+		margin-left: -5px;
+	}
 }
 
 /*PC*/
 @media (min-width: 1024px) {
-	.navbar {
+	.navbar-container {
 		padding: 30px;
 		padding-bottom: 0px;
 	}
 	.title {
 		padding-top: 11px;
 		padding-left: 14px;
+		margin-left: 20px;
 	}
 	.github-link-text {
 		display: block;
@@ -66,5 +119,8 @@
 	}
 	.github-link-logo {
 		display: none;
+	}
+	.navbar-toggler {
+		margin-left: 10px;
 	}
 }
