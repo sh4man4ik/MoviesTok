@@ -3,7 +3,7 @@
 ![Screenshot](./Screenshot.png)
 
 Many people have the problem of not knowing what to watch in the evening. So I created a website where you can randomly
-search for movies, just like a feed on TikTok.
+search for movies, just like a feed on TikTok. You can also use filters to make searching for movies more enjoyable!
 
 # Quick Start
 
