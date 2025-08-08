@@ -38,3 +38,11 @@ npm run dev
 # Technology
 
 I used the following technologies to create the website: _React_, _Vite_, _Node.js_, _Bootstrap_, _Google Fonts_.
+
+# Interesting facts
+
+- Movies can be sorted by year of release, rating, duration, and genre
+
+- I also use Google Analytics to view site stats
+
+- The site looks good on all devices
