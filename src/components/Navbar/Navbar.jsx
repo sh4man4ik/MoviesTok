@@ -137,8 +137,8 @@ function Navbar() {
 				</div>
 				<nav className="navbar navbar-dark">
 					<div className="container-fluid">
-						<button
-							className="navbar-toggler"
+						<i
+							className="navbar-toggler bi bi-filte"
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target="#navbarToggleExternalContent"
@@ -146,8 +146,8 @@ function Navbar() {
 							aria-expanded="false"
 							aria-label="Toggle navigation"
 						>
-							<span className="navbar-toggler-icon"></span>
-						</button>
+							<i className="bi bi-filter"></i>
+						</i>
 						<h1 className="title display-6">MoviesTok</h1>
 						<h1 className="github-link-text display-6" onClick={githubRepoLocation}>
 							GitHub

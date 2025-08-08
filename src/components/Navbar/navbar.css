@@ -33,7 +33,7 @@
 .navbar-toggler {
 	border: none;
 }
-.navbar-toggler .navbar-toggler-icon {
+.navbar-toggler .bi bi-filter {
 	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23e2e2e2' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
@@ -53,9 +53,7 @@
 
 .p-4 div {
 	display: grid;
-	min-width: 150px;
-	width: 50%;
-	max-width: 200px;
+	width: 200px;
 	justify-content: left;
 	border: 1px solid #e2e2e2;
 	border-radius: 5px;
@@ -66,20 +64,30 @@
 	accent-color: #e2e2e2;
 	border: none !important;
 	margin-bottom: 10px;
+	width: 155px;
 }
 
 .p-4 label {
+	font-size: clamp(12px, 2vw, 16px);
+	margin-bottom: 3px;
 	width: max-content;
+}
+
+.p-4 select {
+	font-size: clamp(12px, 2vw, 16px);
 }
 
 .select-movie-genre {
 	height: fit-content;
-	min-width: 150px;
-	width: 50%;
-	max-width: 200px;
+	width: 200px;
 	padding: 5px;
 	border-radius: 5px;
 	border: 1.5px solid #e2e2e2;
+}
+
+.bi-filter {
+	cursor: pointer;
+	font-size: clamp(28px, 5vw, 50px);
 }
 
 /*Mobile*/
@@ -102,15 +110,6 @@
 		margin-top: -4px;
 		margin-left: -5px;
 	}
-	.p-4 input {
-		width: clamp(105px, 15vw, 150px);
-	}
-	.p-4 label {
-		font-size: clamp(11px, 2vw, 16px);
-	}
-	.p-4 select {
-		font-size: clamp(11px, 2vw, 16px);
-	}
 }
 
 /*PC*/
@@ -121,8 +120,7 @@
 	}
 	.title {
 		padding-top: 11px;
-		padding-left: 14px;
-		margin-left: 20px;
+		margin-left: 10px;
 	}
 	.github-link-text {
 		display: block;
@@ -135,13 +133,8 @@
 	.navbar-toggler {
 		margin-left: 10px;
 	}
-	.p-4 input {
-		width: clamp(100px, 15vw, 150px);
-	}
-	.p-4 label {
-		font-size: clamp(14px, 2vw, 16px);
-	}
-	.p-4 select {
-		font-size: clamp(14px, 2vw, 16px);
+	.bi-filter {
+		display: block;
+		margin-top: 7px;
 	}
 }
